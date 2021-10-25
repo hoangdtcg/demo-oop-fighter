@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fighter Game</title>
+  <script src="Fighter.js"></script>
+</head>
+<body>
+<button onclick="displayAll()">Start Game</button>
+<div class="fighter">
+    <h3 id="player1-name">player1</h3>
+    <p id="player1-hp">0</p>
+    <button onclick="attack(hieu,nam)">Attack</button>
+</div>
+<div class="fighter">
+    <h3 id="player2-name">player2</h3>
+    <p id="player2-hp">0</p>
+    <button onclick="attack(nam,hieu)">Attack</button>
+</div>
+<script>
+  let nam = new Fighter("Nam");
+  let hieu = new Fighter("Hiếu");
+
+  function display(id,player) {
+      document.getElementById("player"+id+"-name").innerHTML = player.name;
+      document.getElementById("player"+id+"-hp").innerHTML = player.hp;
+  }
+
+  function attack(player1,player2) {
+      player1.attack(player2);
+      displayAll();
+  }
+
+  function displayAll() {
+      display(2,nam);
+      display(1,hieu);
+  }
+
+</script>
+</body>
+</html>
